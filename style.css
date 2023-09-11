@@ -1,0 +1,92 @@
+/* setting variables for color
+:root {
+  --main-color: rgb(3, 199, 90);
+  --sub-color: rgb(254, 177, 177);
+} */
+
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0; /* Remove default body margin */
+  overflow: hidden; /* Hide any overflow content */
+  background-image: url("spacex.jpg"); /* Set the background image */
+  background-size: cover; /* Cover the entire viewport */
+  background-attachment: fixed; /* Fixed background */
+  background-position: center; /* Center the background image */
+  height: 80%;
+}
+
+div {
+  /* border: 1px solid gray; */
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  /* transition: all 1s ease-in-out; */
+}
+
+#img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent black background for the grayscale effect */
+  filter: grayscale(100%); /* Apply the grayscale filter */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease-in-out;
+}
+
+#img:hover::before {
+  opacity: 1; /* Show the grayscale effect on hover */
+}
+
+/* img {
+    width: 200px; */
+/* transition: all 1s ease-in-out; */
+/* https://cubic-bezier.com/#.01,.91,.74,.37 */
+/* customizing */
+/* transition: all 1s cubic-bezier(0.01, 0.91, 0.74, 0.37); */
+/* } */
+
+/* setting up animation */
+@keyframes moving-logo {
+  /* shrink and then expand */
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(3);
+  }
+  35% {
+    opacity: 0;
+    transform: scale(3);
+  }
+  40% {
+    transform: scale(3);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(3);
+  }
+  50% {
+    transform: scale(3);
+  }
+  75% {
+    transform: translateY(-1000px);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+img {
+  width: 300px;
+  animation: moving-logo 4s infinite;
+}
